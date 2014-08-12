@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- Root -->
+	<xs:element name="categories">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="category" type="categoryType" maxOccurs="unbounded" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Type of category -->
+	<xs:complexType name="categoryType">
+		<xs:sequence>
+			<!-- Set of subcategories -->
+			<xs:element name="subcategories" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="subcategory" type="subcategoryType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Type of subcategory -->
+	<xs:complexType name="subcategoryType">
+		<xs:sequence>
+			<!-- Set of products -->
+			<xs:element name="products" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="product" type="productType" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Type of product -->
+	<xs:complexType name="productType">
+		<xs:sequence>
+			<!-- Manufactured by ... -->
+			<xs:element name="manufacturer" type="xs:string"/>
+			<!-- Model -->
+			<xs:element name="model">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-zA-Z][a-zA-Z][0-9][0-9][0-9]"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- Release date -->
+			<xs:element name="date">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="((0[1-9])|([1-2][0-9])|(3[0-1]))-((0[1-9])|(1[0-2]))-[0-9]{4}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- Color -->
+			<xs:element name="color" default="none">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(((\w+)|(#[0-9a-fA-F]{6})),?)*"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- Price -->
+			<xs:element name="price" type="xs:decimal"/>
+			<!-- Count -->
+			<xs:element name="count" type="xs:nonNegativeInteger" default="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categories 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="products.xsd">
+	<category name="Периферия и оргтехника">
+		<subcategories>
+			<subcategory name="Сканеры">
+				<products>
+					<product>
+						<manufacturer>Canon</manufacturer>
+						<model>FF900</model>
+						<date>20-01-2014</date>
+						<color>grey,black</color>
+						<price>9950.00</price>
+						<count>3</count>
+					</product>
+					<product>
+						<manufacturer>HP</manufacturer>
+						<model>SJ200</model>
+						<date>01-05-2014</date>
+						<color>grey,black</color>
+						<price>2950.00</price>
+						<count>0</count>
+					</product>
+				</products>
+			</subcategory>
+			<subcategory name="Мыши">
+				<products>
+					<product>
+						<manufacturer>DNS</manufacturer>
+						<model>Gv151</model>
+						<date>20-07-2014</date>
+						<color>black</color>
+						<price>720.00</price>
+						<count>10</count>
+					</product>
+					<product>
+						<manufacturer>A4Tech</manufacturer>
+						<model>VM007</model>
+						<date>30-05-2014</date>
+						<color>grey,#2323a2,red,#2ff3ac</color>
+						<price>1350.00</price>
+						<count>2</count>
+					</product>
+					<product>
+						<manufacturer>A4Tech</manufacturer>
+						<model>GN713</model>
+						<date>20-11-2013</date>
+						<color>blue,#000000</color>
+						<price>590.00</price>
+						<count>3</count>
+					</product>
+					<product>
+						<manufacturer>A4Tech</manufacturer>
+						<model>GF555</model>
+						<date>01-05-2014</date>
+						<color>#0ca92b,pink,black</color>
+						<price>610.00</price>
+						<count>0</count>
+					</product>
+				</products>
+			</subcategory>
+		</subcategories>
+	</category>
+	
+	
+	<category name="Принтеры">
+		<subcategories>
+			<subcategory name="Лазерные">
+				<products>
+					<product>
+						<manufacturer>Xerox</manufacturer>
+						<model>DN233</model>
+						<date>20-12-2014</date>
+						<color>white,#00da21</color>
+						<price>9790.00</price>
+						<count>3</count>
+					</product>
+				</products>
+			</subcategory>
+			<subcategory  name="Струйные">
+				<products>
+					<product>
+						<manufacturer>Canon</manufacturer>
+						<model>IP270</model>
+						<date>22-11-2014</date>
+						<color>black</color>
+						<price>1350.0</price>
+						<count>3</count>
+					</product>
+					<product>
+						<manufacturer>Epson</manufacturer>
+						<model>Li300</model>
+						<date>20-07-2014</date>
+						<color>red</color>
+						<price>21990</price>
+						<count>1</count>
+					</product>
+				</products>
+			</subcategory>
+		</subcategories>
+	</category>
+</categories>
