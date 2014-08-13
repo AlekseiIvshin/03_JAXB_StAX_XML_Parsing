@@ -1,5 +1,6 @@
 package staxclasses;
 
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,17 +10,29 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlList;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.Validator;
+
+import jaxbclasses.Categories;
+import jaxbclasses.ProductType;
+import jaxbclasses.SubcategoryType.Products;
 
 import org.xml.sax.SAXException;
 
@@ -33,6 +46,7 @@ import main.Parser;
 public class StAXParser implements Parser{
 
 	public void parse(Schema schema, String xmlLocation, String reslutFile){
+		
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
 		try {
@@ -165,4 +179,5 @@ public class StAXParser implements Parser{
 		}
 		return "";
 	}
+
 }

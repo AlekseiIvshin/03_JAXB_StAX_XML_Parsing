@@ -32,6 +32,7 @@ public class JAXBParser implements Parser {
 			Unmarshaller unmarsheller = context.createUnmarshaller();
 			Marshaller m = context.createMarshaller();
 			unmarsheller.setSchema(schema);
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			// Get categories from XML
 			Categories category = (Categories) unmarsheller
 					.unmarshal(new FileInputStream(f));
