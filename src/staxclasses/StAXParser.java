@@ -111,6 +111,18 @@ public class StAXParser implements Parser{
 			e.printStackTrace();
 		} finally {
 			System.out.printf("Deleted %d items%n",deletedCount);
+			if(writer!=null)
+				try {
+					writer.close();
+				} catch (XMLStreamException e) {
+					e.printStackTrace();
+				}
+			if(reader!=null)
+				try {
+					reader.close();
+				} catch (XMLStreamException e) {
+					e.printStackTrace();
+				}
 			if(inputStream != null)
 				try {
 					inputStream.close();
@@ -123,25 +135,11 @@ public class StAXParser implements Parser{
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			if(writer!=null)
-				try {
-					writer.close();
-				} catch (XMLStreamException e) {
-					e.printStackTrace();
-				}
-			
-			if(reader!=null)
-				try {
-					reader.close();
-				} catch (XMLStreamException e) {
-					e.printStackTrace();
-				}
 		}
 	}
 
 	@Override
 	public boolean isValid(Schema schema, String xmlLocation) {
-
 		Validator validator = schema.newValidator();
 		Source source = new StreamSource(xmlLocation);
 		try{
@@ -153,8 +151,6 @@ public class StAXParser implements Parser{
 	}
 
 	private String getValue(List<XMLEvent> events, String tagName){
-		String value="";
-		
 		for(int i = 0; i<events.size(); i++){
 			if(events.get(i).isStartElement() && 
 					events.get(i).asStartElement().getName().getLocalPart().equals(tagName)) {
@@ -167,6 +163,6 @@ public class StAXParser implements Parser{
 				}
 			}
 		}
-		return value;
+		return "";
 	}
 }
