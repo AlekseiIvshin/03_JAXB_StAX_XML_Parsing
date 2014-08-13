@@ -112,8 +112,10 @@ public class XmlParser {
 			parser = new JAXBParser();
 			break;
 		}
-		
-		System.out.println("Sourse xml valid = "+parser.isValid(schema, xmlLocation));
+		boolean preValid = parser.isValid(schema, xmlLocation);
+		System.out.println("Sourse xml valid = "+preValid);
+		if(!preValid)
+			return;
 		parser.parse(schema, xmlLocation, resultPath);
 		System.out.println("Result xml valid = "+parser.isValid(schema, resultPath));
 	}
